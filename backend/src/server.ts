@@ -19,13 +19,22 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 // Middleware
+// Allow multiple origins
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://portfolio-v1-2-evshvo3na-anamdtechs-projects.vercel.app"
+];
+
+app.use(cors({
+  origin: function(origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  }
+}));
 app.use(express.json()); // Parse JSON bodies
-app.use(
-  cors({
-    origin: "http://localhost:5173", // Allow your frontend
-    credentials: true, // Allow cookies/headers
-  })
-);         // Allow cross-origin requests (for your frontend)
 app.use(helmet());       // Secure HTTP headers
 app.use(cookieParser()); // Parse cookies
 
