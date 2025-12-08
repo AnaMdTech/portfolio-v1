@@ -1,22 +1,14 @@
 {
   "compilerOptions": {
-    /* Language and Environment */
     "target": "es2016",
     "module": "commonjs",
-    "lib": ["es6"],
-
-    /* Modules */
     "rootDir": "./src",
     "outDir": "./dist",
-    "esModuleInterop": true,
-
-    /* Strict Type-Checking */
     "strict": true,
-
-    /* Advanced Options */
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true
+    "esModuleInterop": true,
+    "skipLibCheck": true /* <--- IMPORTANT: Ignores library errors */,
+    "forceConsistentCasingInFileNames": true,
+    "types": ["node"] /* <--- IMPORTANT: Tells TS about 'process' */
   },
-  "include": ["src/**/*"],
-  "exclude": ["node_modules"]
+  "include": ["src/**/*"]
 }
