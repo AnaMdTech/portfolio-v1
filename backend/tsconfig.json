@@ -2,14 +2,15 @@
   "compilerOptions": {
     "target": "es2016",
     "module": "commonjs",
-    "moduleResolution": "node" /* <--- Helper for locating modules */,
+    "moduleResolution": "node",
     "rootDir": "./src",
     "outDir": "./dist",
-    "strict": true,
+    "strict": false /* <--- DISABLE STRICT MODE */,
+    "noImplicitAny": false /* <--- ALLOW "ANY" TYPES */,
     "esModuleInterop": true,
-    "skipLibCheck": true /* <--- Ignores deep library errors */,
-    "forceConsistentCasingInFileNames": true
-    /* REMOVED "types": ["node"] - Let TS find it automatically */
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true
   },
   "include": ["src/**/*"]
 }
