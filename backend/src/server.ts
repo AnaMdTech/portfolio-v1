@@ -22,7 +22,7 @@ const PORT = process.env.PORT || 5000;
 // Allow multiple origins
 const allowedOrigins = [
   "http://localhost:5173",
-  "https://portfolio-v1-2-nv0rep1i2-anamdtechs-projects.vercel.app",
+  "https://anamdtech.vercel.app",
 ];
 
 app.use(cors({
