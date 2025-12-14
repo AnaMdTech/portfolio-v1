@@ -24,7 +24,7 @@ const Blog = () => {
     setLoading(true);
     api
       .get("/posts")
-      .then((res) => setPosts(res.data))
+      .then((res) => setPosts(res.data.data))
       .finally(() => setLoading(false));
   }, []);
 
