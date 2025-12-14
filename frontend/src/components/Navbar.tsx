@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
-import Logo from "./Logo"; // <--- Import your new logo
+import Logo from "./Logo";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -27,37 +27,42 @@ const Navbar = () => {
           <Logo />
         </Link>
 
-        {/* DESKTOP MENU */}
+        {/* DESKTOP MENU - Studio Terms */}
         <div className="hidden md:flex items-center gap-8">
           <a
-            href="/#projects"
-            className="text-gray-300 hover:text-primary transition-colors text-sm font-medium tracking-widest"
+            href="/#services"
+            className="text-gray-300 hover:text-primary transition-colors text-sm font-bold tracking-widest"
           >
-            SELECTED
+            CAPABILITIES
           </a>
+
           <a
-            href="/#about"
-            className="text-gray-300 hover:text-primary transition-colors text-sm font-medium tracking-widest"
+            href="/#work"
+            className="text-gray-300 hover:text-primary transition-colors text-sm font-bold tracking-widest"
           >
-            ABOUT
+            WORK
           </a>
+
+          {/* Restored Link: Renamed to INSIGHTS for professional appeal */}
           <Link
             to="/blog"
-            className="text-gray-300 hover:text-primary transition-colors text-sm font-medium tracking-widest"
+            className="text-gray-300 hover:text-primary transition-colors text-sm font-bold tracking-widest"
           >
-            BLOG
+            INSIGHTS
           </Link>
-          <Link
-            to="/work"
-            className="text-gray-300 hover:text-primary transition-colors text-sm font-medium tracking-widest"
+
+          <a
+            href="/#about"
+            className="text-gray-300 hover:text-primary transition-colors text-sm font-bold tracking-widest"
           >
-            ARCHIVE
-          </Link>
+            STUDIO
+          </a>
+
           <Link
             to="/contact"
             className="px-6 py-2 border border-primary text-primary hover:bg-primary hover:text-black transition-all rounded text-sm font-bold shadow-[0_0_10px_rgba(0,243,255,0.1)] hover:shadow-[0_0_20px_rgba(0,243,255,0.5)]"
           >
-            INITIATE CONTACT
+            INITIATE UPLINK
           </Link>
         </div>
 
@@ -74,39 +79,40 @@ const Navbar = () => {
       {isOpen && (
         <div className="absolute top-full left-0 w-full h-screen bg-black/95 backdrop-blur-xl border-b border-white/10 p-8 flex flex-col gap-8 md:hidden z-40">
           <a
-            href="/#projects"
+            href="/#services"
             onClick={() => setIsOpen(false)}
             className="text-2xl text-white hover:text-primary"
           >
-            SELECTED
+            CAPABILITIES
           </a>
           <a
-            href="/#about"
+            href="/#work"
             onClick={() => setIsOpen(false)}
             className="text-2xl text-white hover:text-primary"
           >
-            ABOUT
+            WORK
           </a>
+          {/* Add here too */}
           <Link
             to="/blog"
             onClick={() => setIsOpen(false)}
             className="text-2xl text-white hover:text-primary"
           >
-            BLOG
+            INSIGHTS
           </Link>
-          <Link
-            to="/work"
+          <a
+            href="/#about"
             onClick={() => setIsOpen(false)}
             className="text-2xl text-white hover:text-primary"
           >
-            ARCHIVE
-          </Link>
+            THE STUDIO
+          </a>
           <Link
             to="/contact"
             onClick={() => setIsOpen(false)}
             className="text-2xl text-primary font-bold"
           >
-            CONTACT ME
+            CONTACT
           </Link>
         </div>
       )}

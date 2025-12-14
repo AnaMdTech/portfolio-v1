@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Home -->
+  <url>
+    <loc>https://anamdtech.vercel.app/</loc>
+    <lastmod>2024-02-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <!-- Archive -->
+  <url>
+    <loc>https://anamdtech.vercel.app/work</loc>
+    <lastmod>2024-02-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- Insights -->
+  <url>
+    <loc>https://anamdtech.vercel.app/blog</loc>
+    <lastmod>2024-02-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- Contact -->
+  <url>
+    <loc>https://anamdtech.vercel.app/contact</loc>
+    <priority>0.5</priority>
+  </url>
+</urlset>

@@ -7,6 +7,7 @@ import Navbar from "../components/Navbar";
 import Loading from "../components/Loading";
 import api from "../api/axios";
 import { usePageTitle } from "../hooks/usePageTitle";
+import SEO from "../components/SEO";
 
 interface Project {
   id: string;
@@ -70,6 +71,15 @@ const ProjectDetails = () => {
 
   return (
     <div className="min-h-screen bg-background text-white selection:bg-primary selection:text-black">
+      {project && (
+        <SEO
+          title={project.title}
+          description={project.description.substring(0, 150) + "..."}
+          image={project.imageUrl}
+          url={`/project/${project.id}`}
+        />
+      )}
+      
       <Navbar />
 
       {/* HEADER SECTION (Typography based) */}

@@ -1,9 +1,12 @@
 import axios from 'axios';
 
+const fallbackURL = "http://localhost:5500/api";
+const baseURL = import.meta.env.VITE_API_URL || fallbackURL;
+
 const api = axios.create({
-  baseURL: "https://portfolio-v1-2-6ik8.onrender.com/api",
+  baseURL: baseURL,
   headers: {
-    'Content-Type': 'application/json'
+    "Content-Type": "application/json",
   },
 });
 

@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useLocation } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
 import Navbar from "../components/Navbar";
 import api from "../api/axios";
-import { Tag } from "lucide-react";
+import { Tag, ArrowLeft } from "lucide-react";
 import { usePageTitle } from "../hooks/usePageTitle";
 import Loading from "../components/Loading";
+import SEO from "../components/SEO";
 
 // Define the shape of a Post
 interface Post {
@@ -20,7 +21,8 @@ interface Post {
 }
 
 const BlogPost = () => {
-  const { id } = useParams(); // Get the ID from the URL
+  const { id } = useParams();
+  const location = useLocation();
   const [post, setPost] = useState<Post | null>(null);
   const [related, setRelated] = useState<Post[]>([]);
   const [loading, setLoading] = useState(true);
@@ -74,6 +76,11 @@ const BlogPost = () => {
 
   usePageTitle(post?.title || "Blog Post"); // Set the page title to the post title
 
+  // Determine Back Path
+  const backPath = location.state?.from === "/blog" ? "/blog" : "/";
+  const backLabel =
+    location.state?.from === "/blog" ? "Back to Insights" : "Back to Studio";
+
   if (loading)
     return (
       <div className="min-h-screen bg-black text-white flex items-center justify-center">
@@ -89,7 +96,27 @@ const BlogPost = () => {
 
   return (
     <div className="min-h-screen bg-background text-white selection:bg-secondary selection:text-white">
+      {post && (
+        <SEO
+          title={post.title}
+          description={post.content.substring(0, 150) + "..."}
+          image={post.imageUrl}
+          type="article"
+          url={`/blog/${post.id}`}
+        />
+      )}
+
       <Navbar />
+
+      {/* HEADER / BACK BUTTON OVERLAY */}
+      <div className="absolute top-24 left-6 z-30">
+        <Link
+          to={backPath}
+          className="inline-flex items-center gap-2 text-white/80 hover:text-white bg-black/20 backdrop-blur-md px-4 py-2 rounded-full border border-white/10 transition-all hover:bg-black/40"
+        >
+          <ArrowLeft size={16} /> {backLabel}
+        </Link>
+      </div>
 
       {/* --- HERO IMAGE SECTION --- */}
       <div className="w-full h-[50vh] md:h-[60vh] relative">
